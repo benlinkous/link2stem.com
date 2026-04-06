@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Link2STEM — Building the Next Generation of Problem Solvers</title>
+<meta name="description" content="STEM education resources and pathways for students, families, and educators. Part of the LINKS ecosystem from the New River Valley, Virginia." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0f2d5e;--navy2:#1a4080;--blue:#2563eb;
+  --green:#16a34a;--green-pale:#dcfce7;
+  --bg:#f0f7ff;--white:#fff;--surface:#e8f2ff;
+  --text:#0f172a;--muted:#475569;
+  --sans:'Nunito',sans-serif;--mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.7;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;position:sticky;top:0;z-index:100;}
+.brand{font-weight:900;font-size:1.3rem;color:#fff;letter-spacing:-0.01em;}
+.brand em{color:#60a5fa;font-style:normal;}
+.nav-links{display:flex;gap:1.5rem;list-style:none;}
+.nav-links a{font-size:0.82rem;font-weight:700;color:rgba(255,255,255,0.7);transition:color 0.2s;}
+.nav-links a:hover{color:#fff;}
+.nav-toggle{display:none;background:none;border:2px solid rgba(255,255,255,0.3);color:#fff;padding:0.4rem 0.75rem;cursor:pointer;border-radius:6px;font-weight:700;font-size:0.78rem;}
+@media(max-width:680px){
+  .nav-toggle{display:block;}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--navy2);padding:1rem 1.5rem;}
+  .nav-links.open{display:flex;}
+  .nav-links li{padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.1);}
+}
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);padding:6rem 2rem 5rem;text-align:center;}
+.hero-inner{max-width:680px;margin:0 auto;}
+.hero-badge{display:inline-block;background:rgba(96,165,250,0.15);border:1px solid rgba(96,165,250,0.3);color:#93c5fd;font-size:0.75rem;font-weight:700;padding:0.35rem 1rem;border-radius:999px;margin-bottom:1.5rem;letter-spacing:0.05em;}
+h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;}
+h1 span{color:#60a5fa;}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.78);max-width:520px;margin:0 auto 2.5rem;line-height:1.8;font-weight:500;}
+.btn{display:inline-block;font-weight:800;font-size:0.92rem;padding:0.85rem 1.75rem;border-radius:999px;margin:0.25rem;transition:transform 0.15s,opacity 0.15s;}
+.btn-gold{background:#60a5fa;color:var(--navy);}
+.btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.3);}
+.btn:hover{transform:translateY(-2px);opacity:0.9;}
+.section{padding:4.5rem 2rem;max-width:900px;margin:0 auto;}
+.eyebrow{font-family:var(--mono);font-size:0.62rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:0.5rem;}
+h2{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;color:var(--navy);letter-spacing:-0.02em;margin-bottom:1rem;}
+.lead-text{font-size:1.05rem;color:var(--muted);line-height:1.85;font-weight:500;margin-bottom:1rem;}
+.lead-text strong{color:var(--text);}
+.stem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2rem;}
+.stem-card{background:var(--white);border-radius:16px;padding:1.75rem;border:2px solid var(--surface);box-shadow:0 2px 12px rgba(0,0,0,0.05);}
+.stem-letter{font-size:2.8rem;font-weight:900;line-height:1;margin-bottom:0.4rem;}
+.s{color:#2563eb;}.t{color:#7c3aed;}.e{color:#ea580c;}.m{color:#16a34a;}
+.stem-card h3{font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:0.35rem;}
+.stem-card p{font-size:0.875rem;color:var(--muted);line-height:1.7;font-weight:500;}
+.purpose-band{background:var(--navy);padding:4.5rem 2rem;}
+.purpose-inner{max-width:760px;margin:0 auto;text-align:center;}
+.purpose-band h2{color:#fff;margin-bottom:1.25rem;}
+.purpose-band p{font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.9;margin-bottom:1rem;font-weight:400;}
+.purpose-band p strong{color:#fff;}
+.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.5rem;}
+.who-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.25rem;text-align:center;}
+.who-emoji{font-size:1.75rem;margin-bottom:0.5rem;display:block;}
+.who-card h3{font-size:0.85rem;font-weight:800;color:#fff;margin-bottom:0.2rem;}
+.who-card p{font-size:0.75rem;color:rgba(255,255,255,0.5);font-weight:500;}
+.links-section{padding:4.5rem 2rem;max-width:900px;margin:0 auto;border-top:1px solid #dbeafe;}
+.links-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;}
+.link-card{background:var(--white);border-radius:12px;padding:1.4rem;border:2px solid var(--surface);}
+.link-tag{font-family:var(--mono);font-size:0.58rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:0.4rem;display:block;}
+.link-card h3{font-size:0.92rem;font-weight:800;color:var(--navy);margin-bottom:0.3rem;}
+.link-card p{font-size:0.8rem;color:var(--muted);line-height:1.6;font-weight:500;}
+.status{display:inline-block;margin-top:0.6rem;font-size:0.68rem;font-weight:700;padding:0.18rem 0.55rem;border-radius:999px;}
+.live{background:var(--green-pale);color:var(--green);}
+.building{background:#ffedd5;color:#ea580c;}
+footer{background:var(--navy);padding:2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.footer-brand{font-weight:900;font-size:1rem;color:#fff;}
+.footer-brand em{color:#60a5fa;font-style:normal;}
+.footer-copy{font-family:var(--mono);font-size:0.55rem;color:rgba(255,255,255,0.25);}
+@media(max-width:700px){
+  .stem-grid,.who-grid,.links-grid{grid-template-columns:1fr 1fr;}
+  .section,.links-section{padding:3rem 1.5rem;}
+  .purpose-band{padding:3rem 1.5rem;}
+  .hero{padding:4rem 1.5rem 3.5rem;}
+  footer{flex-direction:column;text-align:center;padding:1.5rem;}
+}
+@media(max-width:480px){.stem-grid,.who-grid,.links-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="brand"><em>Link2</em>STEM</div>
+  <button class="nav-toggle" id="navToggle">Menu</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#stem">What is STEM</a></li>
+    <li><a href="#purpose">Our Purpose</a></li>
+    <li><a href="#network">Our Network</a></li>
+    <li><a href="https://stemkidz.biz" target="_blank" rel="noopener">STEMKidz →</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🔬 Education · NRV & Beyond</div>
+    <h1>Building the Next Generation of <span>Problem Solvers</span></h1>
+    <p class="hero-sub">STEM isn't just for scientists and engineers. It's a way of thinking — curious, methodical, creative — that prepares anyone for anything.</p>
+    <a href="#stem" class="btn btn-gold">What is STEM?</a>
+    <a href="#purpose" class="btn btn-ghost">Our Purpose</a>
+  </div>
+</div>
+
+<section class="section" id="stem">
+  <div class="eyebrow">What is STEM</div>
+  <h2>Four Disciplines. One Way of Thinking.</h2>
+  <p class="lead-text">STEM stands for <strong>Science, Technology, Engineering, and Mathematics</strong> — four interconnected fields that shape how we understand and build the world. But more than a curriculum, STEM is a mindset: ask questions, test ideas, learn from failure, and build something better.</p>
+  <div class="stem-grid">
+    <div class="stem-card"><div class="stem-letter s">S</div><h3>Science</h3><p>Understanding the natural world through observation, experimentation, and evidence. Science teaches us to ask why — and to keep asking until we find an honest answer.</p></div>
+    <div class="stem-card"><div class="stem-letter t">T</div><h3>Technology</h3><p>The tools and systems we build to solve problems. From basic computer skills to AI to cybersecurity — technology is the fastest-changing field in modern life.</p></div>
+    <div class="stem-card"><div class="stem-letter e">E</div><h3>Engineering</h3><p>Designing and building real solutions to real problems. Engineering is the bridge between knowing something and doing something with that knowledge.</p></div>
+    <div class="stem-card"><div class="stem-letter m">M</div><h3>Math</h3><p>The language of patterns, logic, and relationships. Math is the foundation everything else is built on — and one of the most transferable skills anyone can develop.</p></div>
+  </div>
+</section>
+
+<div class="purpose-band" id="purpose">
+  <div class="purpose-inner">
+    <div class="eyebrow" style="color:#60a5fa;">Our Purpose</div>
+    <h2>Why This Exists</h2>
+    <p>I'm Ben Linkous — a retired Army Master Sergeant from Pulaski, Virginia. After decades of service I transitioned into technology, education, and community work. What I found was a gap: <strong>STEM resources that actually meet people where they are.</strong></p>
+    <p>Not everyone is headed to a four-year engineering program. But everyone deserves access to the curiosity, the tools, and the pathways that STEM provides. Link2STEM is my attempt to help close that gap — for kids in the NRV, for veterans in transition, for educators who need better resources, and for anyone who still has the drive to learn something new.</p>
+    <p><strong>STEM doesn't have an age limit. Neither does this.</strong></p>
+    <div class="who-grid">
+      <div class="who-card"><span class="who-emoji">🧒</span><h3>K-12 Students</h3><p>Building curiosity before complexity</p></div>
+      <div class="who-card"><span class="who-emoji">👨‍👩‍👧</span><h3>Parents & Families</h3><p>Learning together at any stage</p></div>
+      <div class="who-card"><span class="who-emoji">🎓</span><h3>Educators</h3><p>Practical resources for real classrooms</p></div>
+      <div class="who-card"><span class="who-emoji">🎖️</span><h3>Veterans & Career Changers</h3><p>STEM pathways after service</p></div>
+    </div>
+  </div>
+</div>
+
+<section class="links-section" id="network">
+  <div class="eyebrow">Our Network</div>
+  <h2>Part of a Bigger Mission</h2>
+  <p class="lead-text">Link2STEM is part of a growing ecosystem of education, community, and technology sites built for the NRV and beyond.</p>
+  <div class="links-grid">
+    <div class="link-card"><span class="link-tag">Hands-On STEM</span><h3>stemkidz.biz</h3><p>Tech STEM for kids and families — coding, drones, rocketry, and Minecraft Education.</p><span class="status live">Live</span></div>
+    <div class="link-card"><span class="link-tag">STEAM Pathway</span><h3>link2steam.com</h3><p>Adding Arts to the equation — creative and technical learning together.</p><span class="status building">Building</span></div>
+    <div class="link-card"><span class="link-tag">Cybersecurity</span><h3>link2cyber.com</h3><p>Free 80-day cybersecurity bootcamp — zero to job-ready.</p><span class="status live">Live</span></div>
+    <div class="link-card"><span class="link-tag">IT for Everyone</span><h3>link2it.io</h3><p>Technology without a CS degree — AI, web dev, and practical IT.</p><span class="status live">Live</span></div>
+    <div class="link-card"><span class="link-tag">NRV Community</span><h3>linksnrv.com</h3><p>Local life in the New River Valley — the community this mission is rooted in.</p><span class="status live">Live</span></div>
+    <div class="link-card"><span class="link-tag">The Hub</span><h3>benlinkous.com</h3><p>The personal site connecting all 22 projects and the story behind them.</p><span class="status live">Live</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand"><em>Link2</em>STEM · link2stem.com</div>
+  <div class="footer-copy">© <span id="yr"></span> Ben Linkous · Pulaski, Virginia</div>
+</footer>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+document.getElementById('navToggle').addEventListener('click',function(){
+  document.getElementById('navLinks').classList.toggle('open');
+  this.textContent=document.getElementById('navLinks').classList.contains('open')?'Close':'Menu';
+});
+</script>
+</body>
+</html>
